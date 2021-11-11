@@ -1,0 +1,27 @@
+version: "3.2"
+services:
+  project:
+    restart: always
+    container_name: code
+    command : bash -c "python manage.py migrate &&
+                      python manage.py runserver 0.0.0.0:8110"
+#    env_file:
+#      - ./project/settings.ini
+    build:
+      context: ./survey_project/
+      dockerfile: Dockerfile
+    ports:
+      - "8110:8110"
+
+  frontend:
+    restart: always
+    command : npm run dev
+    container_name: front
+    build:
+      context: ./survey_fr/
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    depends_on:
+      - project
