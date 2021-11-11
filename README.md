@@ -13,5 +13,5 @@ achieve the other component.
 
 In order to see the values added to the database navigate directly to the backend API service
 
-http://localhost:8110/api/userresponses/  in order to view the survey submissions
-http://localhost:8110/api/userratings/  in order to view the rating submissions
+1) http://localhost:8110/api/userresponses/  in order to view the survey submissions
+2) http://localhost:8110/api/userratings/  in order to view the rating submissions
