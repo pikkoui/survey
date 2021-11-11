@@ -51,14 +51,8 @@ export default class Survey extends Component {
             });
         } else {
             let body = [];
-            console.log("Questions_ans")
-            console.log(this.state.questions_ans)
             for (const [key, value] of Object.entries(this.state.questions_ans)) {
-                console.log("Malli")
-                console.log(value)
                 for (const v of value['selections']) {
-                    console.log("Debbug")
-                    console.log(v)
                     body.push(
                         {
                             "user": 1,
@@ -77,8 +71,7 @@ export default class Survey extends Component {
                     )
                 }
             }
-            console.log("RESULT")
-            console.log(body)
+
             axios.post('http://localhost:8110/api/userresponses/create_multiple/', body, )
                 .then(response => window.location.reload(false) )
                 .catch(error => {
@@ -123,8 +116,6 @@ export default class Survey extends Component {
     }
 
     render() {
-        console.log("RENDER")
-        console.log(this.state)
         let self = this;
 
         return (
